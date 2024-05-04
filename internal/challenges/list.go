@@ -1,4 +1,4 @@
-package challengelist
+package challenges
 
 import (
 	"fmt"

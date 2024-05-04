@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"interview/internal/languagelist"
+	"interview/internal/challenges"
+	"interview/internal/languages"
 	"os"
 
 	"github.com/charmbracelet/bubbles/list"
@@ -11,21 +12,21 @@ import (
 
 func main() {
 	items := []list.Item{
-		languagelist.Item("Go"),
-		languagelist.Item("Javascript"),
-		languagelist.Item("Typescript"),
+		languages.Item("Go"),
+		languages.Item("Javascript"),
+		languages.Item("Typescript"),
 	}
-	languagesModel := languagelist.Model{List: languagelist.CreateList(items, "Language")}
+	languagesModel := languages.Model{List: languages.CreateList(items, "Language")}
 
 	if _, err := tea.NewProgram(languagesModel).Run(); err != nil {
 		fmt.Println("Error running program:", err)
 		os.Exit(1)
 	}
 
-	switch languagelist.LanguageChosen {
+	switch languages.LanguageChosen {
 	case "Javascript":
-		handleJavascript()
+		challenges.HandleJavascript()
 	case "Go":
-		handleGo()
+		challenges.HandleGo()
 	}
 }

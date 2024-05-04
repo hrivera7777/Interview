@@ -1,30 +1,29 @@
-package main
+package challenges
 
 import (
 	"fmt"
-	"interview/internal/challengelist"
 	"os"
 
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 )
 
-func handleJavascript() {
+func HandleJavascript() {
 	challenges := []list.Item{
-		challengelist.Item("Arrow Functions"),
-		challengelist.Item("Closures"),
-		challengelist.Item("Promises"),
-		challengelist.Item("Prototypes"),
-		challengelist.Item("This Keyword"),
+		Item("Arrow Functions"),
+		Item("Closures"),
+		Item("Promises"),
+		Item("Prototypes"),
+		Item("This Keyword"),
 	}
-	challengesModel := challengelist.Model{List: challengelist.CreateList(challenges, "Challenge")}
+	challengesModel := Model{List: CreateList(challenges, "Challenge")}
 
 	if _, err := tea.NewProgram(challengesModel).Run(); err != nil {
 		fmt.Println("Error running program:", err)
 		os.Exit(1)
 	}
 
-	switch challengelist.ChallengeChosen {
+	switch ChallengeChosen {
 	case "Arrow Functions":
 		fmt.Println("hey bro you chose: Arrow Functions")
 
