@@ -98,7 +98,7 @@ func (m Model) View() string {
 	return "\n" + m.List.View()
 }
 
-func createList(items []list.Item, title string) list.Model {
+func CreateList(items []list.Item, title string) list.Model {
 	const defaultWidth = 20
 	l := list.New(items, ItemDelegate{}, defaultWidth, ListHeight)
 	l.Title = title

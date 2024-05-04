@@ -84,11 +84,11 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	return m, cmd
 }
 
-var languageChosen = ""
+var ChallengeChosen = ""
 
 func (m Model) View() string {
 	if m.choice != "" {
-		languageChosen = m.choice
+		ChallengeChosen = m.choice
 
 		// return quitTextStyle.Render(.View() + fmt.Sprintf("\nYou chose: %s", m.choice))
 	}
